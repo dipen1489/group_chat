@@ -235,7 +235,7 @@ describe('API Integration Tests :: Happy path', () => {
   });
 
   // will receive 401 (unauthorized) with session expired message for all API after logout
-  it('should list all users after logout', async() => {
+  it('should return 401 if list users api call after logout', async() => {
     const response = await request.get('/v1/users')
       .set('Cookie', userCookie)
     

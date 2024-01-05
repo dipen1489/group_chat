@@ -1,7 +1,7 @@
 {
-  "name": "authentication-authorization-expressjs-tutorial-starterfiles",
+  "name": "group_chat",
   "version": "1.0.0",
-  "description": "starterfiles",
+  "description": "Group chat application where users can create a group and send/like messages",
   "main": "server.js",
   "scripts": {
     "start": "node v1/server.js",

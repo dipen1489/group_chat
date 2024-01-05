@@ -1,0 +1,2104 @@
+{
+	"info": {
+		"_postman_id": "44a36df1-e809-4005-aea7-4d36205e06dc",
+		"name": "Group Chat",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4571862",
+		"_collection_link": "https://solar-astronaut-897986.postman.co/workspace/Riktam~d61dce61-5ee6-4618-8f81-a20e0ed0d1d4/collection/4571862-44a36df1-e809-4005-aea7-4d36205e06dc?action=share&source=collection_link&creator=4571862"
+	},
+	"item": [
+		{
+			"name": "Register / Create Admin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"first_name\": \"dipen_admin\",\r\n    \"last_name\": \"vaghela\",\r\n    \"email\": \"admin@gmail.com\", \r\n    \"password\": \"admin@123\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/v1/users/admin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"v1",
+						"users",
+						"admin"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success Resp",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\": \"dipen\",\r\n    \"last_name\": \"vaghela\",\r\n    \"email\": \"admin@gmail.com\",\r\n    \"password\": \"admin@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/users/admin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"users",
+								"admin"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "310"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"136-E+kKKuQNegOWSff9TXrQ5/oxXqI\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 03 Jan 2024 14:03:52 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"email\": \"admin@gmail.com\",\n        \"first_name\": \"dipen\",\n        \"last_name\": \"vaghela\",\n        \"_id\": \"6595ad87a7290d15813e684a\",\n        \"createdAt\": \"2024-01-03T18:55:03.939Z\",\n        \"updatedAt\": \"2024-01-03T18:55:03.939Z\",\n        \"__v\": 0\n    },\n    \"error\": {},\n    \"meta\": {}\n}"
+				},
+				{
+					"name": "Already Exists",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\": \"dipen\",\r\n    \"last_name\": \"vaghela\",\r\n    \"email\": \"admin@gmail.com\",\r\n    \"password\": \"admin@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/users/admin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"users",
+								"admin"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "102"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"66-cCdn02c2LTuUIVNDJttQXkNqGkM\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 03 Jan 2024 14:04:11 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [],\n    \"error\": {\n        \"message\": \"It seems you already have an account, please log in instead.\"\n    },\n    \"meta\": {}\n}"
+				},
+				{
+					"name": "Error Resp",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\": \"dipen\",\r\n    \"last_name\": \"vaghela\",\r\n    \"email\": \"admin1@gmail.com\", // wrong / different email then ADMIN_EMAIL from .env file\r\n    \"password\": \"admin1@123\" // wrong / different password then ADMIN_PASSWORD from .env file\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/users/admin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"users",
+								"admin"
+							]
+						}
+					},
+					"status": "Unprocessable Entity",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "115"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"73-rXJzQMRZ8rhP5agggZ0MVcaj/EI\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 03 Jan 2024 14:06:28 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [],\n    \"error\": {\n        \"email\": \"Enter a valid admin email address from env\",\n        \"password\": \"Enter a valid admin password from env\"\n    },\n    \"meta\": {}\n}"
+				}
+			]
+		},
+		{
+			"name": "Login User/Admin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"user1@gmail.com\",\r\n    \"password\": \"user1@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/v1/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"v1",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create User Copy",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin@gmail.com\",\r\n    \"password\": \"admin@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "SessionID=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1OTU2NWE0OGEwYjA0YTgxNjczMGY4MyIsImlhdCI6MTcwNDI4OTc5NSwiZXhwIjoxNzA0MjkxNTk1fQ.yTis5zupdFaVG3FwcXPlAbqLBElNlqQkm8HtyGcHAME; Max-Age=1800; Path=/; Expires=Wed, 03 Jan 2024 14:19:55 GMT; HttpOnly; Secure; SameSite=None"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "65"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"41-4UsNvgsO/79psMtP0lGe+NF7mSo\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 03 Jan 2024 13:49:55 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"message\": \"You have successfully logged in.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Register / Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"first_name\": \"dipen\",\r\n    \"last_name\": \"vaghela\",\r\n    \"email\": \"user1@gmail.com\",\r\n    \"password\": \"user1@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/v1/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"v1",
+						"users"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success Resp",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\": \"dipen\",\r\n    \"last_name\": \"vaghela\",\r\n    \"email\": \"user1@gmail.com\",\r\n    \"password\": \"user1@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"users"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "310"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"136-OH0zfDinrPm8sK/+sXhpyOD7A7g\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 03 Jan 2024 14:09:18 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"email\": \"user1@gmail.com\",\n        \"first_name\": \"dipen\",\n        \"last_name\": \"vaghela\",\n        \"_id\": \"6595b019327105995997aa05\",\n        \"createdAt\": \"2024-01-03T19:06:01.423Z\",\n        \"updatedAt\": \"2024-01-03T19:06:01.423Z\",\n        \"__v\": 0\n    },\n    \"error\": {},\n    \"meta\": {}\n}"
+				},
+				{
+					"name": "Already Exists",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\": \"dipen\",\r\n    \"last_name\": \"vaghela\",\r\n    \"email\": \"user1@gmail.com\",\r\n    \"password\": \"user1@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"users"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "102"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"66-cCdn02c2LTuUIVNDJttQXkNqGkM\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 03 Jan 2024 14:09:39 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [],\n    \"error\": {\n        \"message\": \"It seems you already have an account, please log in instead.\"\n    },\n    \"meta\": {}\n}"
+				},
+				{
+					"name": "Error Resp",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\": \"dipen\",\r\n    \"last_name\": \"vaghela\",\r\n    \"email\": \"use.com\",\r\n    \"password\": \"abc\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"users"
+							]
+						}
+					},
+					"status": "Unprocessable Entity",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "92"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"5c-c5duSnr/Rof6XvQQO3waCarL6x8\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 03 Jan 2024 14:10:18 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [],\n    \"error\": {\n        \"email\": \"Enter a valid email address\",\n        \"password\": \"Must be at least 5 chars long\"\n    },\n    \"meta\": {}\n}"
+				},
+				{
+					"name": "Non Admin User Error Resp",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\": \"dipen\",\r\n    \"last_name\": \"vaghela\",\r\n    \"email\": \"user1@gmail.com\",\r\n    \"password\": \"user1@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"users"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "73"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"49-J6Wvn9NJfo0qksujHFzSQIB/9I8\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 03 Jan 2024 14:11:31 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [],\n    \"error\": {\n        \"message\": \"You are not authorized to access this API\"\n    },\n    \"meta\": {}\n}"
+				}
+			]
+		},
+		{
+			"name": "List All Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/v1/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"v1",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "limit",
+							"value": "3",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success Resp",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/v1/users?page=1&limit=3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"users"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "383"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"17f-QG9u77sPi4H/kekmbSevM3Nud9U\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 03 Jan 2024 19:49:49 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"firstName\": \"dipen1\",\n            \"lastName\": \"vaghela1\",\n            \"email\": \"user11@gmail.com\",\n            \"id\": \"6595b019327105995997aa05\"\n        },\n        {\n            \"firstName\": \"binal\",\n            \"lastName\": \"vaghela\",\n            \"email\": \"user2@gmail.com\",\n            \"id\": \"6595b1e044935b9b638f062e\"\n        },\n        {\n            \"firstName\": \"jatin\",\n            \"lastName\": \"vaghela\",\n            \"email\": \"user3@gmail.com\",\n            \"id\": \"6595b231a48b13dbfa8840b3\"\n        }\n    ],\n    \"error\": {},\n    \"meta\": {\n        \"total\": 4,\n        \"page\": 1,\n        \"per_page\": 3,\n        \"page_count\": 2\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Update User details",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"first_name\": \"rahul1\",\r\n    \"last_name\": \"vaghela1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/v1/users/:user_id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"v1",
+						"users",
+						":user_id"
+					],
+					"variable": [
+						{
+							"key": "user_id",
+							"value": "6597a48f720d22458bc4fdc5"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success Resp",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\": \"dipen1\",\r\n    \"last_name\": \"vaghela1\",\r\n    \"email\": \"user11@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/users/:user_id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"users",
+								":user_id"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "6595b019327105995997aa05"
+								}
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 03 Jan 2024 19:22:13 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Create Group",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"test Group\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/v1/groups",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"v1",
+						"groups"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success Resp",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"school\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/groups",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"groups"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "203"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"cb-nyvOed23K2y2Y3JDf5Hgm30AN8M\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 03 Jan 2024 20:39:00 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"creater\": \"6595b019327105995997aa05\",\n        \"name\": \"school\",\n        \"_id\": \"6595c5e4bdcc1d3420ba5f9c\",\n        \"createdAt\": \"2024-01-03T20:39:00.875Z\",\n        \"updatedAt\": \"2024-01-03T20:39:00.875Z\",\n        \"__v\": 0\n    },\n    \"error\": {},\n    \"meta\": {}\n}"
+				},
+				{
+					"name": "Already Exists",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"school\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/groups",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"groups"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "101"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"65-XyiaNd9KK4We/yW538baPL46OLc\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 03 Jan 2024 20:39:58 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [],\n    \"error\": {\n        \"message\": \"It seems the group with name = 'school' is already exists\"\n    },\n    \"meta\": {}\n}"
+				}
+			]
+		},
+		{
+			"name": "Add Members",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"members\": [\"6597a48f720d22458bc4fdc5\", \"6597a49a720d22458bc4fdca\", \"6597a4a4720d22458bc4fdcf\", \"6597a4ac720d22458bc4fdd4\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/v1/groups/:group_id/members",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"v1",
+						"groups",
+						":group_id",
+						"members"
+					],
+					"variable": [
+						{
+							"key": "group_id",
+							"value": "6597a4e8720d22458bc4fde6"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success Resp",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"members\": [\"6595b019327105995997aa05\", \"6595b1e044935b9b638f062e\", \"6595b231a48b13dbfa8840b3\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/groups/:group_id/members",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"groups",
+								":group_id",
+								"members"
+							],
+							"variable": [
+								{
+									"key": "group_id",
+									"value": "6595d3c27d51503cac55aaef"
+								}
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 03 Jan 2024 21:41:10 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						},
+						{
+							"key": "Content-Length",
+							"value": "0"
+						}
+					],
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Error Not Found",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"members\": [\"6595b019327105995997aa05\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/groups/:group_id/members",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"groups",
+								":group_id",
+								"members"
+							],
+							"variable": [
+								{
+									"key": "group_id",
+									"value": "6595d1da57aca1061bcb62d"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "59"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"3b-Gve6QzNBhhiUj4TMXTWyfTT3oZs\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 03 Jan 2024 22:01:01 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [],\n    \"error\": {\n        \"message\": \"Group not found\"\n    },\n    \"meta\": {}\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Group",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/v1/groups/:group_id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"v1",
+						"groups",
+						":group_id"
+					],
+					"variable": [
+						{
+							"key": "group_id",
+							"value": "6597a4e8720d22458bc4fde6"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success Resp",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/v1/groups/:group_id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"groups",
+								":group_id"
+							],
+							"variable": [
+								{
+									"key": "group_id",
+									"value": "659686b44fa4b8687c4cbbe3"
+								}
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 04 Jan 2024 10:22:46 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Error Not Found",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/v1/groups/:group_id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"groups",
+								":group_id"
+							],
+							"variable": [
+								{
+									"key": "group_id",
+									"value": "659686b44fa4b8687c4cbbe3"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "59"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"3b-Gve6QzNBhhiUj4TMXTWyfTT3oZs\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 04 Jan 2024 10:25:05 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [],\n    \"error\": {\n        \"message\": \"Group not found\"\n    },\n    \"meta\": {}\n}"
+				}
+			]
+		},
+		{
+			"name": "Get All Gropus",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/v1/groups",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"v1",
+						"groups"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"disabled": true
+						},
+						{
+							"key": "search",
+							"value": "col",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success Resp All",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/v1/groups?page=1&limit=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"groups"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "search",
+									"value": "col",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "205"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"cd-u5o3Susyx7Hix6jgJ82BtHm7AGE\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 03 Jan 2024 21:14:09 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"name\": \"college\",\n            \"members\": [],\n            \"id\": \"6595c66705541c2801e4cc7a\"\n        },\n        {\n            \"name\": \"school\",\n            \"members\": [],\n            \"id\": \"6595ca159e793053157e427a\"\n        }\n    ],\n    \"error\": {},\n    \"meta\": {\n        \"total\": 2,\n        \"page\": 1,\n        \"per_page\": 10,\n        \"page_count\": 1\n    }\n}"
+				},
+				{
+					"name": "Success Resp with Search",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/v1/groups?page=1&limit=10&search=col",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"groups"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "search",
+									"value": "col"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "142"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"8e-nKDzupJ3/Pj5EqOeqyJzTofVUP0\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 03 Jan 2024 21:14:48 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"name\": \"college\",\n            \"members\": [],\n            \"id\": \"6595c66705541c2801e4cc7a\"\n        }\n    ],\n    \"error\": {},\n    \"meta\": {\n        \"total\": 1,\n        \"page\": 1,\n        \"per_page\": 10,\n        \"page_count\": 1\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Group Details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/v1/groups/:group_id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"v1",
+						"groups",
+						":group_id"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "col",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "group_id",
+							"value": "6597a4e8720d22458bc4fde6"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success Resp",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/v1/groups/:group_id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"groups",
+								":group_id"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "col",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "group_id",
+									"value": "659660cc8ab2270dc67f46b3"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "288"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"120-lcgbGf2Wun3rKLO85L3W8ROgwE4\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 04 Jan 2024 08:30:35 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"name\": \"school\",\n        \"creator\": \"dipen_vaghela\",\n        \"members\": [\n            \"dipen_vaghela\",\n            \"binal_vaghela\"\n        ],\n        \"messages\": [\n            {\n                \"id\": \"6596725a6d813e0d18202c19\",\n                \"content\": \"hello everyone\",\n                \"sender\": \"dipen_vaghela\",\n                \"likes\": [\n                    \"dipen_vaghela\",\n                    \"binal_vaghela\"\n                ]\n            },\n            {\n                \"id\": \"6596725a6d813e0d18202c20\",\n                \"content\": \"Hello Dipen\",\n                \"sender\": \"binal_vaghela\",\n                \"likes\": []\n            }\n        ]\n    },\n    \"error\": {},\n    \"meta\": {}\n}"
+				},
+				{
+					"name": "Error Not Found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/v1/groups/:group_id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"groups",
+								":group_id"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "col",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "group_id",
+									"value": "659660cc8ab2270dc67f46b"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "59"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"3b-Gve6QzNBhhiUj4TMXTWyfTT3oZs\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 04 Jan 2024 08:32:11 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [],\n    \"error\": {\n        \"message\": \"Group not found\"\n    },\n    \"meta\": {}\n}"
+				}
+			]
+		},
+		{
+			"name": "Send Messages",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"content\": \"happy new year, same to you\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/v1/messages/:group_id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"v1",
+						"messages",
+						":group_id"
+					],
+					"variable": [
+						{
+							"key": "group_id",
+							"value": "6597a4e8720d22458bc4fde6"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success Resp",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\": \"How Are You !!!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/messages/:group_id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"messages",
+								":group_id"
+							],
+							"variable": [
+								{
+									"key": "group_id",
+									"value": "659660cc8ab2270dc67f46b3"
+								}
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "225"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"e1-GQ3I0qMi3zCYvwRUdI8uBmb08mo\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 04 Jan 2024 07:41:44 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"sender\": \"6595b019327105995997aa05\",\n        \"content\": \"How Are You !!!\",\n        \"likes\": [],\n        \"_id\": \"659661388ab2270dc67f46c7\",\n        \"createdAt\": \"2024-01-04T07:41:44.138Z\",\n        \"updatedAt\": \"2024-01-04T07:41:44.138Z\",\n        \"__v\": 0\n    },\n    \"error\": {},\n    \"meta\": {}\n}"
+				},
+				{
+					"name": "Error Not Found",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\": \"How Are You !!!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/messages/:group_id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"messages",
+								":group_id"
+							],
+							"variable": [
+								{
+									"key": "group_id",
+									"value": "659660cc8ab2270dc67f46b"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "59"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"3b-Gve6QzNBhhiUj4TMXTWyfTT3oZs\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 04 Jan 2024 07:42:38 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [],\n    \"error\": {\n        \"message\": \"Group not found\"\n    },\n    \"meta\": {}\n}"
+				}
+			]
+		},
+		{
+			"name": "Like Message",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/v1/messages/:message_id/like",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"v1",
+						"messages",
+						":message_id",
+						"like"
+					],
+					"variable": [
+						{
+							"key": "message_id",
+							"value": "6597a578720d22458bc4fe06"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success Resp",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/v1/messages/:message_id/like",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"messages",
+								":message_id",
+								"like"
+							],
+							"variable": [
+								{
+									"key": "message_id",
+									"value": "659661068ab2270dc67f46c1"
+								}
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 04 Jan 2024 07:58:33 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Error Not Found",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/v1/messages/:message_id/like",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"messages",
+								":message_id",
+								"like"
+							],
+							"variable": [
+								{
+									"key": "message_id",
+									"value": "659661068ab2270dc67f46c"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "61"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"3d-6f774+hLfHKM0PWq07HjBc491RA\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 04 Jan 2024 07:59:20 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [],\n    \"error\": {\n        \"message\": \"Message not found\"\n    },\n    \"meta\": {}\n}"
+				}
+			]
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/v1/auth/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"v1",
+						"auth",
+						"logout"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success Resp",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/v1/auth/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Clear-Site-Data",
+							"value": "\"cookies\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 03 Jan 2024 19:52:47 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						},
+						{
+							"key": "Content-Length",
+							"value": "0"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
