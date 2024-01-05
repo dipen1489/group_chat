@@ -1,6 +1,6 @@
 import Group from "../models/Group.js";
 import Message from "../models/Message.js";
-import { respDto, metaDto } from '../utils/commonDto.js'
+import { respDto } from '../utils/commonDto.js'
 import mongoose from "mongoose";
 
 export async function SendMessage(req, res) {
